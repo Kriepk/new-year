@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>З Новим Роком!</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #1e3c72, #2a5298);
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            color: white;
+        }
+
+        h1 {
+            margin-top: 20px;
+            font-size: 3em;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+        }
+
+        .tree {
+            font-size: 5em;
+            margin: 50px auto;
+        }
+
+        .snowflake {
+            position: fixed;
+            top: -10px;
+            color: white;
+            font-size: 1em;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>З Новим Роком!</h1>
+    <div class="tree">🎄✨🎁</div>
+
+    <script>
+        function createSnowflake() {
+            const snowflake = document.createElement('div');
+            snowflake.className = 'snowflake';
+            snowflake.textContent = '❄';
+            snowflake.style.left = Math.random() * window.innerWidth + 'px';
+            snowflake.style.animationDuration = Math.random() * 3 + 2 + 's';
+            snowflake.style.fontSize = Math.random() * 10 + 10 + 'px';
+            document.body.appendChild(snowflake);
+
+            snowflake.addEventListener('animationend', () => {
+                snowflake.remove();
+            });
+        }
+
+        setInterval(createSnowflake, 100);
+    </script>
+</body>
+</html>
